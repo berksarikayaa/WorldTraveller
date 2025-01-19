@@ -9,53 +9,58 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
-    @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
+    
+    @State var fahrenheitValue: String = ""
+    
+    let numberFormatter : NumberFormatter = {
+       
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        numberFormatter.minimumFractionDigits = 0
+        numberFormatter.maximumFractionDigits = 2
+        return numberFormatter
+        
+    }()
+    
+    func convertToCelsius() -> String {
 
-    var body: some View {
-        NavigationSplitView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
-                    }
-                }
-                .onDelete(perform: deleteItems)
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-            }
-        } detail: {
-            Text("Select an item")
+        if let value = Double(fahrenheitValue) {
+            
+            let fahrenheit =
+            Measurement<UnitTemperature>(value :
+                        value, unit: .fahrenheit)
+            
+            let celsiusValue = fahrenheit.converted(to:.celsius)
+            
+            return numberFormatter.string(from: NSNumber(value: celsiusValue.value)) ?? "???"
+            
+        }else{
+            return "???"
         }
+        
     }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
+        
+    var body: some View{
+        VStack{
+            TextField("value", text: $fahrenheitValue)
+                .keyboardType(.decimalPad)
+                .font(Font.system(size:64.0))
+                .multilineTextAlignment(.center)
+            Text("Fahrenheit")
+            Text("is actually")
+                .foregroundColor(.gray)
+            Text(convertToCelsius())
+                .font(Font.system(size:64.0))
+            Text("degrees Celcius")
+            Spacer()
         }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
-            }
-        }
+        .foregroundStyle(.orange)
+        .font(.title)
     }
 }
 
-#Preview {
-    ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
 }
