@@ -2,7 +2,7 @@
 //  WorldTravellerUITestsLaunchTests.swift
 //  WorldTravellerUITests
 //
-//  Created by Buket Bayhan on 19.01.2025.
+//  Created by Berk Sarikaya on 19.01.2025.
 //
 
 import XCTest

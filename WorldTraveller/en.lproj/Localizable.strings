@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  WorldTraveller
+
+  Created by Berk Sarikaya on 20.01.2025.
+  
+*/
+
+"TAB_CONVERSION" = "Conversion";
+"TAB_MAP" = "Map";
+"MAP_CITY_ISTANBUL" = "Istanbul";
+"MAP_CITY_LONDON" = "London";
+"CONVERSION_TEXT_FIELD_PLACEHOLDER" = "Value";
+"CONVERSION_FAHRENHEIT" = "Fahrenheit";
+"CONVERSION_IS_ACTUALLY" = "Is Actually";
+"CONVERSION_DEGREES_CELSIUS" = "Degrees Celcius";
+

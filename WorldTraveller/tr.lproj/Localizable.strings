@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  WorldTraveller
+
+  Created by Berk Sarikaya on 20.01.2025.
+  
+*/
+
+"TAB_CONVERSION" = "Cevirici";
+"TAB_MAP" = "Harita";
+"MAP_CITY_ISTANBUL" = "Istanbul";
+"MAP_CITY_LONDON" = "Londra";
+"CONVERSION_TEXT_FIELD_PLACEHOLDER" = "Deger";
+"CONVERSION_FAHRENHEIT" = "Fahrenheit";
+"CONVERSION_IS_ACTUALLY" = "Aslinda";
+"CONVERSION_DEGREES_CELSIUS" = "Derece";

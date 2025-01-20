@@ -2,7 +2,7 @@
 //  WorldTravellerApp.swift
 //  WorldTraveller
 //
-//  Created by Buket Bayhan on 19.01.2025.
+//  Created by BBerk Sarikaya on 19.01.2025.
 //
 
 import SwiftUI
@@ -17,14 +17,14 @@ struct WorldTravellerApp: App {
                     .tabItem {
                         HStack {
                             Image(systemName: "thermometer")
-                            Text("Conversion")
+                            Text("TAB_CONVERSION")
                         }
                     }
                 MapView()
                     .tabItem {
                         HStack {
                             Image(systemName: "map")
-                            Text("Map")
+                            Text("TAB_MAP")
                         }
                     }
             }

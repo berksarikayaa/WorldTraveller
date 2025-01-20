@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  WorldTraveller
 //
-//  Created by Buket Bayhan on 19.01.2025.
+//  Created by Berk Sarikaya on 19.01.2025.
 //
 
 import SwiftUI
@@ -42,16 +42,16 @@ struct ContentView: View {
         
     var body: some View{
         VStack{
-            TextField("value", text: $fahrenheitValue)
+            TextField("CONVERSION_TEXT_FIELD_PLACEHOLDER", text: $fahrenheitValue)
                 .keyboardType(.decimalPad)
                 .font(Font.system(size:64.0))
                 .multilineTextAlignment(.center)
-            Text("Fahrenheit")
-            Text("is actually")
+            Text("CONVERSION_FAHRENHEIT")
+            Text("CONVERSION_IS_ACTUALLY")
                 .foregroundColor(.gray)
             Text(convertToCelsius())
                 .font(Font.system(size:64.0))
-            Text("degrees Celcius")
+            Text("CONVERSION_DEGREES_CELSIUS")
             Spacer()
         }
         .foregroundStyle(.orange)
