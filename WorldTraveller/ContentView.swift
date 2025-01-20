@@ -11,6 +11,7 @@ import SwiftData
 struct ContentView: View {
     
     @State var fahrenheitValue: String = ""
+    @State var isVisible = false
     
     let numberFormatter : NumberFormatter = {
        
@@ -56,6 +57,10 @@ struct ContentView: View {
         }
         .foregroundStyle(.orange)
         .font(.title)
+        .opacity(isVisible ? 1 : 0)
+        .offset(x:0, y: isVisible ? 0 :20)
+        .animation(.easeIn(duration: 1.0))
+        .onAppear{self.isVisible = true}
     }
 }
 
